@@ -1,5 +1,7 @@
 $InformationPreference = "Continue"
-Push-Location $(System.DefaultWorkingDirectory)
+##  Push-Location $(System.DefaultWorkingDirectory)
+
+Write-Information $(Get-Location)
 
 git version
 git lfs version
