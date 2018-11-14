@@ -1,0 +1,25 @@
+##  reference.build-ci pipeline
+
+name: reference.build-ci
+trigger:
+- master
+
+queue:
+  name: Default
+steps:
+- powershell: |
+    $InformationPreference = "Continue"
+    Push-Location $(System.DefaultWorkingDirectory)
+    $null = New-Item -ItemType directory -Path ./Code -Force
+    Push-Location ./Code
+
+
+
+    Write-Information "ALL  DONE"
+
+  workingDirectory: '$(System.DefaultWorkingDirectory)'
+
+  displayName: 'release'
+  env:
+    GITHUB_TOKEN: $(GITHUB_TOKEN)
+    BRANCH: $(BRANCH)
