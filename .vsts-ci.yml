@@ -27,8 +27,9 @@ steps:
     ##  git config --get-all http.proxy
 
     ##  git -c http.extraheader="AUTHORIZATION: basic ***" fetch --tags --prune --progress --no-recurse-submodules origin
+    ##  git clone https://SQLHorizons:$($env:GITHUB_TOKEN)@github.com/SQLHorizons/.testBuild.git --recurse-submodules release
 
-    git clone --single-branch -b $env:BRANCH  https://SQLHorizons:$($env:GITHUB_TOKEN)@github.com/SQLHorizons/.testBuild.git --recurse-submodules release
+    git clone https://SQLHorizons:$($env:GITHUB_TOKEN)@github.com/SQLHorizons/functions.git
 
     Write-Information "ALL  DONE"
 
