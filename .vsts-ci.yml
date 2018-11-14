@@ -11,10 +11,16 @@ steps:
     $InformationPreference = "Continue"
     Push-Location $(System.DefaultWorkingDirectory)
 
-    Get-Location
+    if(Test-Path ./release) {
+      Remove-Item ./release -Force -Recurse
+    }
+    $null = New-Item -ItemType directory -Path ./release -Force
 
-
-
+    git version
+    git lfs version
+    git init ./release
+    Push-Location ./release
+    Write-Information $(Get-Location)
 
 
 
