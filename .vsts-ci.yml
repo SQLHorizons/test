@@ -18,15 +18,17 @@ steps:
 
     git version
     git lfs version
-    git init ./release
-    Push-Location ./release
-    Write-Information $(Get-Location)
+    ##  git init ./release
+    ##  Push-Location ./release
+    ##  Write-Information $(Get-Location)
     ##  git remote add origin https://SQLHorizons:$($env:GITHUB_TOKEN)@github.com/SQLHorizons/.testBuild
     ##  git config gc.auto 0
     ##  git config --get-all http.https://github.com/SQLHorizons/.testBuild.extraheader
     ##  git config --get-all http.proxy
 
     ##  git -c http.extraheader="AUTHORIZATION: basic ***" fetch --tags --prune --progress --no-recurse-submodules origin
+
+    git clone --single-branch -b $env:BRANCH  https://SQLHorizons:$($env:GITHUB_TOKEN)@github.com/SQLHorizons/.testBuild.git --recurse-submodules release
 
     Write-Information "ALL  DONE"
 
