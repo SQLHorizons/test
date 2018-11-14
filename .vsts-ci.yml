@@ -10,8 +10,11 @@ steps:
 - powershell: |
     $InformationPreference = "Continue"
     Push-Location $(System.DefaultWorkingDirectory)
-    $null = New-Item -ItemType directory -Path ./Code -Force
-    Push-Location ./Code
+
+    Get-Location
+
+
+
 
 
 
