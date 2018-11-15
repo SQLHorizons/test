@@ -1,9 +1,16 @@
+param(
+    [Parameter(Mandatory = $false)]
+    [ValidateNotNullOrEmpty()]
+    [System.String]
+    $GITHUB_TOKEN
+)
+
 $InformationPreference = "Continue"
 ##  Push-Location $(System.DefaultWorkingDirectory)
 
 Write-Information $(Get-Location)
 
-$env:GITHUB_TOKEN = "c5e75a5fa45b19ef77ccf53d8735ea5054b4e86c"
+$env:GITHUB_TOKEN = $GITHUB_TOKEN
 
 git version
 git lfs version
